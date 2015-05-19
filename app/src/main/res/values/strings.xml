@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">BeaconReference</string>
+    <string name="select">Select Clients</string>
+    <string-array name="clients_array">
+        <item>Select Client</item>
+        <item>Client1</item>
+        <item>Client2</item>
+        <item>Client3</item>
+    </string-array>
+</resources>

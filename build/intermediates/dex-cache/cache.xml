@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-abd0432f83a067f3442ed45f4c94acace85cb9db.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-e7eef149e48e008e3dc7ea92b88573c2fa1e8b12.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-333a53315d1d9f95486459cdded39a46b370ce71.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/exploded-aar/org.altbeacon/android-beacon-library/2.1.4/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="fc2b4fa86d40b71af744611751543dfe079eff58">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-76e3b2ca5e05f3304145c2ca8499b793029df8c2.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-0ff9e955bd06631fc2aa5fb6f5beed468776c2e0.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-72816261d7e732fd23b83997c20ea0e39a81f93b.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-58e28d7f499d9fcde9580e47fa7fa4aab0bfc4d6.jar" />
+    </item>
+    <item
+        jar="/Users/SOMA/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.10/5b338f206827d88acd890739f400a9b7664e5984/slf4j-api-1.7.10.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="5b338f206827d88acd890739f400a9b7664e5984">
+        <dex dex="/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/slf4j-api-1.7.10-5f89c4fa0634f107fb82f04d2f0f2d1c60b1eccc.jar" />
+    </item>
+
+</items>

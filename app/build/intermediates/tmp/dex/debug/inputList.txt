@@ -1,0 +1,9 @@
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/classes/debug
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-72816261d7e732fd23b83997c20ea0e39a81f93b.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-333a53315d1d9f95486459cdded39a46b370ce71.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/slf4j-api-1.7.10-5f89c4fa0634f107fb82f04d2f0f2d1c60b1eccc.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-76e3b2ca5e05f3304145c2ca8499b793029df8c2.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-abd0432f83a067f3442ed45f4c94acace85cb9db.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-e7eef149e48e008e3dc7ea92b88573c2fa1e8b12.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-0ff9e955bd06631fc2aa5fb6f5beed468776c2e0.jar
+/Users/SOMA/Downloads/android-beacon-library-reference-master/app/build/intermediates/pre-dexed/debug/classes-58e28d7f499d9fcde9580e47fa7fa4aab0bfc4d6.jar
