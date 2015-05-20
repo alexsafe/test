@@ -133,6 +133,7 @@ public class MenuClass extends FragmentActivity implements Page2.TextClicked,Com
         setIntent.addCategory(Intent.CATEGORY_HOME);
         setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(setIntent);
+        finish();
     }
 
     @Override

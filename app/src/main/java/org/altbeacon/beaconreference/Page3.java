@@ -36,6 +36,7 @@ public class Page3 extends Fragment implements BeaconConsumer {
     private static final String STRING_VALUE = "stringValue";
     public Context context;
     View android;
+    Activity activity;
     TextView rangeTxt;
     ImageView proximityImage;
     ConnectionDetector cd;
@@ -176,12 +177,13 @@ public class Page3 extends Fragment implements BeaconConsumer {
             @Override
             public void didRangeBeaconsInRegion(final Collection<Beacon> beacons, Region region) {
                 if (beacons.size() > 0) {
-                    getActivity().runOnUiThread(new Runnable() {
+                    if (getActivity() != null)
+                        getActivity().runOnUiThread(new Runnable() {
 
-                        @Override
-                        public void run() {
+                            @Override
+                            public void run() {
 //                    EditText editText = (EditText)Page2.this.findViewById(R.id.rangingText);
-                            Beacon firstBeacon = beacons.iterator().next();
+                                Beacon firstBeacon = beacons.iterator().next();
 //                            Log.d("tag", "page3 data:" + firstBeacon.describeContents());
 //                            Log.d("tag", "page3 data:" + firstBeacon.getBluetoothName());
 //                            Log.d("tag", "page3 data:" + firstBeacon.getBluetoothAddress());
@@ -190,9 +192,9 @@ public class Page3 extends Fragment implements BeaconConsumer {
 //                            Log.d("tag", "page3 data:" + firstBeacon.getIdentifiers());
 //                            Log.d("tag", "page3 data:" + firstBeacon.getManufacturer());
 //                            Log.d("tag", "page3 data:" + firstBeacon.getTxPower());
-                            setDistanceUi(firstBeacon.getDistance());
-                        }
-                    });
+                                setDistanceUi(firstBeacon.getDistance());
+                            }
+                        });
                     // logToDisplay("The first beacon "+firstBeacon.toString()+" is about "+firstBeacon.getDistance()+" meters away.");
                 }
             }
