@@ -21,10 +21,11 @@ android {
 }
 
 dependencies {
-    dependencies {
+
         //compile project(':android-beacon-library')
-        compile 'org.altbeacon:android-beacon-library:2+@aar'
-    }
+    compile 'org.altbeacon:android-beacon-library:2+@aar'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
     compile 'com.android.support:support-v4:+'
     compile 'org.slf4j:slf4j-api:1.7.10'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
