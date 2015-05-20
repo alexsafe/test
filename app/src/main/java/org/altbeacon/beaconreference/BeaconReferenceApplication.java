@@ -43,7 +43,7 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
         //        setBeaconLayout("m:2-3=aabb,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"));
         //
 
-        Log.d(TAG, "setting up background monitoring for beacons and power saving");
+        Log.d(TAG, "BeaconReferenceApplication setting up background monitoring for beacons and power saving");
         // wake up the app when a beacon is seen
         Region region = new Region("backgroundRegion",
                 null, null, null);
@@ -63,9 +63,9 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
     public void didEnterRegion(Region arg0) {
         // In this example, this class sends a notification to the user whenever a Beacon
         // matching a Region (defined above) are first seen.
-        Log.d(TAG, "did enter region.");
+        Log.d(TAG, "BeaconReferenceApplication did enter region.");
         if (!haveDetectedBeaconsSinceBoot) {
-            Log.d(TAG, "auto launching MainActivity");
+            Log.d(TAG, "BeaconReferenceApplication auto launching MainActivity");
 
             // The very first time since boot that we detect an beacon, we launch the
             // MainActivity
@@ -84,8 +84,8 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
             } else {
                 // If we have already seen beacons before, but the monitoring activity is not in
                 // the foreground, we send a notification to the user on subsequent detections.
-                Log.d(TAG, "Sending notification.");
-                sendNotification();
+                Log.d(TAG, "BeaconReferenceApplication Sending notification.");
+                //sendNotification();
             }
         }
 
@@ -95,6 +95,7 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
     @Override
     public void didExitRegion(Region region) {
         if (monitoringActivity != null) {
+            Log.d(TAG, "BeaconReferenceApplication I no longer see a beacon.");
             monitoringActivity.logToDisplay("I no longer see a beacon.");
         }
     }
@@ -102,6 +103,7 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
     @Override
     public void didDetermineStateForRegion(int state, Region region) {
         if (monitoringActivity != null) {
+            Log.d(TAG, "BeaconReferenceApplication I have just switched from seeing/not seeing beacons: " + state);
             monitoringActivity.logToDisplay("I have just switched from seeing/not seeing beacons: " + state);
         }
     }
@@ -128,6 +130,7 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
 
     public void setMonitoringActivity(MonitoringActivity activity) {
         this.monitoringActivity = activity;
+
     }
 
 }

@@ -25,6 +25,7 @@ public class SelectClient extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((BeaconReferenceApplication) this.getApplicationContext()).setMonitoringActivity(null);
         setContentView(R.layout.select_client_layout);
         if (checkConn()) {
             Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -53,7 +54,7 @@ public class SelectClient extends Activity {
 
 //                Intent intent = new Intent(getApplicationContext(), MenuClass.class);
 //                startActivity(intent);
-                    //moveTaskToBack(true);
+                    moveTaskToBack(true);
                 }
             });
         }

@@ -43,6 +43,7 @@ public class Page2 extends Fragment implements BeaconConsumer {
     public Context context;
     ConnectionDetector cd;
     BeaconConsumer bc;
+    Communicator comm;
     private BeaconManager beaconManager = null;
     TextView beaconId,status_text,beacon_text;
     TextClicked mCallback;
@@ -210,6 +211,13 @@ public class Page2 extends Fragment implements BeaconConsumer {
 //    }
 
     @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+        comm=(Communicator) getActivity();
+    }
+
+
+    @Override
     public void onBeaconServiceConnect() {
         beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override
@@ -222,15 +230,16 @@ public class Page2 extends Fragment implements BeaconConsumer {
                         @Override
                         public void run() {
                             Beacon firstBeacon = beacons.iterator().next();
-                            Log.d("tag","page2 data:"+firstBeacon.describeContents());
-                            Log.d("tag","page2 data:"+firstBeacon.getBluetoothName());
-                            Log.d("tag","page2 data:"+firstBeacon.getBluetoothAddress());
-                            Log.d("tag","page2 data:"+firstBeacon.getBeaconTypeCode());
-                            Log.d("tag","page2 data:"+firstBeacon.getDataFields());
-                            Log.d("tag","page2 data:"+firstBeacon.getIdentifiers());
-                            Log.d("tag","page2 data:"+firstBeacon.getManufacturer());
-                            Log.d("tag","page2 data:"+firstBeacon.getTxPower());
+//                            Log.d("tag","page2 data:"+firstBeacon.describeContents());
+//                            Log.d("tag","page2 data:"+firstBeacon.getBluetoothName());
+//                            Log.d("tag","page2 data:"+firstBeacon.getBluetoothAddress());
+//                            Log.d("tag","page2 data:"+firstBeacon.getBeaconTypeCode());
+//                            Log.d("tag","page2 data:"+firstBeacon.getDataFields());
+//                            Log.d("tag","page2 data:"+firstBeacon.getIdentifiers());
+//                            Log.d("tag","page2 data:"+firstBeacon.getManufacturer());
+//                            Log.d("tag","page2 data:"+firstBeacon.getTxPower());
                             mCallback.sendText(firstBeacon.getDistance());
+                            comm.respond("muie");
 //                            Log.d("test","found "+beacons.size()+" beacons");
 //                        tvDetails.setText(String.format("found %s beacons", beacons.size()));
                             beacon_text.setText("The beacon");

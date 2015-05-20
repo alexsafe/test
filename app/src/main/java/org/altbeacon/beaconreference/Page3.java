@@ -11,14 +11,12 @@ import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
@@ -29,7 +27,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Collection;
-import java.util.HashMap;
 
 /**
  * Created by SOMA on 20/04/15.
@@ -41,16 +38,9 @@ public class Page3 extends Fragment implements BeaconConsumer {
     View android;
     TextView rangeTxt;
     ImageView proximityImage;
-    private String activityAssignedValue = "";
     ConnectionDetector cd;
+    private String activityAssignedValue = "";
     private BeaconManager beaconManager = null;
-
-
-    public static Page3 createInstance() {
-        return new Page3();
-    }
-
-
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -60,20 +50,24 @@ public class Page3 extends Fragment implements BeaconConsumer {
         }
     };
 
+    public static Page3 createInstance() {
+        return new Page3();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         beaconManager = BeaconManager.getInstanceForApplication(getActivity());
         beaconManager.bind(this);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("test","page3 onCreateView");
+        Log.d("test", "page3 onCreateView");
         android = inflater.inflate(R.layout.fragment3_layout, container, false);
-
-        setRetainInstance(true);
-        Log.d("test","onCreateView page3 :"+rangeTxt);
+        Log.d("test", "onCreateView page3 :" + rangeTxt);
         //modifyText("muie");
         return android;
     }
@@ -89,13 +83,14 @@ public class Page3 extends Fragment implements BeaconConsumer {
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("test","page3 pause");
+        Log.d("test", "page3 pause");
         if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(true);
     }
+
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("test","page3 resume");
+        Log.d("test", "page3 resume");
         IntentFilter ifi = new IntentFilter("be.hcpl.android.beaconexample.NOTIFY_FOR_BEACON");
         ifi.setPriority(10);
         getActivity().registerReceiver(mReceiver, ifi);
@@ -105,7 +100,7 @@ public class Page3 extends Fragment implements BeaconConsumer {
 
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState){
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         rangeTxt = (TextView) getActivity().findViewById(R.id.rangeTxt);
         proximityImage = (ImageView) getActivity().findViewById(R.id.proximityImage);
@@ -116,20 +111,21 @@ public class Page3 extends Fragment implements BeaconConsumer {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("test","page3 destroy");
+        Log.d("test", "page3 destroy");
         // unbind if needed
         if (beaconManager.isBound(this)) beaconManager.unbind(this);
     }
 
-    public void updateText(double text){
+    public void updateText(double text) {
         // Here you have it
-        Log.d("test","update text page3 :"+text);
-        Log.d("test","android page3 :"+rangeTxt);
-        if (android!=null) {
+        Log.d("test", "update text page3 :" + text);
+        Log.d("test", "android page3 :" + rangeTxt);
+        if (android != null) {
             rangeTxt = (TextView) android.findViewById(R.id.rangeTxt);
-        }Log.d("test","update text page3 :"+rangeTxt);
-        if (rangeTxt!=null)
-        rangeTxt.setText("Estimated distance to the beacon "+String.format("%.2f", text) +" m");
+        }
+        Log.d("test", "update text page3 :" + rangeTxt);
+        if (rangeTxt != null)
+            rangeTxt.setText("Estimated distance to the beacon " + String.format("%.2f", text) + " m");
         //setDistanceUi(text);
     }
 
@@ -141,9 +137,8 @@ public class Page3 extends Fragment implements BeaconConsumer {
 
     @Override
     public void unbindService(ServiceConnection serviceConnection) {
-        FragmentActivity activ=getActivity();
-        if (activ!=null)
-        {
+        FragmentActivity activ = getActivity();
+        if (activ != null) {
             activ.unbindService(serviceConnection);
         }
 //        getActivity().unbindService(serviceConnection);
@@ -155,15 +150,24 @@ public class Page3 extends Fragment implements BeaconConsumer {
     }
 
     @Override
-    public  void onAttach(Activity activity){
+    public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.d("test","page3 attach");
+        if (beaconManager != null)
+            if (beaconManager.isBound(this)) beaconManager.unbind(this);
+        Log.d("test", "page3 attach");
     }
 
     @Override
-    public  void onDetach(){
+    public void onDetach() {
         super.onDetach();
-        Log.d("test","page3 onDetach");
+        Log.d("test", "page3 onDetach");
+    }
+
+    public void changeText(String data) {
+        Log.d("test", "page3 data:" + data);
+        Log.d("test", "page3 changetext:" + rangeTxt);
+
+//        rangeTxt.setText(data);
     }
 
     @Override
@@ -178,14 +182,14 @@ public class Page3 extends Fragment implements BeaconConsumer {
                         public void run() {
 //                    EditText editText = (EditText)Page2.this.findViewById(R.id.rangingText);
                             Beacon firstBeacon = beacons.iterator().next();
-                            Log.d("tag", "page3 data:" + firstBeacon.describeContents());
-                            Log.d("tag", "page3 data:" + firstBeacon.getBluetoothName());
-                            Log.d("tag", "page3 data:" + firstBeacon.getBluetoothAddress());
-                            Log.d("tag", "page3 data:" + firstBeacon.getBeaconTypeCode());
-                            Log.d("tag", "page3 data:" + firstBeacon.getDataFields());
-                            Log.d("tag", "page3 data:" + firstBeacon.getIdentifiers());
-                            Log.d("tag", "page3 data:" + firstBeacon.getManufacturer());
-                            Log.d("tag", "page3 data:" + firstBeacon.getTxPower());
+//                            Log.d("tag", "page3 data:" + firstBeacon.describeContents());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getBluetoothName());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getBluetoothAddress());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getBeaconTypeCode());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getDataFields());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getIdentifiers());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getManufacturer());
+//                            Log.d("tag", "page3 data:" + firstBeacon.getTxPower());
                             setDistanceUi(firstBeacon.getDistance());
                         }
                     });
@@ -197,7 +201,8 @@ public class Page3 extends Fragment implements BeaconConsumer {
 
         try {
             beaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
-        } catch (RemoteException e) {   }
+        } catch (RemoteException e) {
+        }
     }
     /*
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -241,20 +246,15 @@ public class Page3 extends Fragment implements BeaconConsumer {
 
 
     public void setDistanceUi(double dist) {
-        Log.d("test","page3 setDistanceUi:"+dist);
-        rangeTxt.setText("Estimated distance to the beacon "+String.format("%.2f", dist) +" m");
-        if (dist<0.60)
-        {
+        Log.d("test", "page3 setDistanceUi:" + dist);
+        rangeTxt.setText("Estimated distance to the beacon " + String.format("%.2f", dist) + " m");
+        if (dist < 0.60) {
 
             proximityImage.setImageResource(R.drawable.immediate_proximity);
-        }
-        else
-        if (dist<3){
+        } else if (dist < 3) {
 //            rangeTxt.setText("Estimated distance to the beacon < 3m ");
             proximityImage.setImageResource(R.drawable.near_proximity);
-        }
-        else
-        if (dist<40){
+        } else if (dist < 40) {
 //            rangeTxt.setText("Estimated distance to the beacon >3m<40m ");
             proximityImage.setImageResource(R.drawable.far_proximity);
         }
@@ -314,6 +314,7 @@ public class Page3 extends Fragment implements BeaconConsumer {
             }
         }
     }
+
     public boolean checkConn() {
         Log.d("test", "check internet connection");
         cd = new ConnectionDetector(context);

@@ -52,8 +52,13 @@ public class BeaconService extends Service implements BootstrapNotifier, BeaconC
     public void onCreate() {
         super.onCreate();
         Log.d("tag", "beaconService created");
-        beaconManager = BeaconManager.getInstanceForApplication(this);
+        startReceivers();
+    }
+
+    public void startReceivers(){
+        beaconManager = BeaconManager.getInstanceForApplication(getApplication());
         beaconManager.bind(this);
+        Log.d("test", "beaconService startreceivers:"+beaconManager.checkAvailability());
         if (beaconManager.isBound(this)) {
             Log.d("test", "beaconService manager is bound");
             beaconManager.setBackgroundMode(false);
@@ -69,7 +74,9 @@ public class BeaconService extends Service implements BootstrapNotifier, BeaconC
     public int onStartCommand(Intent intent, int flags, int startId) {
         // Let it continue running until it is stopped.
         //Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+        Log.d("test","beaconService onStartCommand");
         createBroadcastRecievers();
+        startReceivers();
         return START_STICKY;
     }
 
@@ -182,6 +189,7 @@ public class BeaconService extends Service implements BootstrapNotifier, BeaconC
 
 
     }
+
 
     @Override
     public void didExitRegion(Region region) {

@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.astuetz.PagerSlidingTabStrip;
 
 
-public class MenuClass extends FragmentActivity implements Page2.TextClicked{//implements ROXIMITYEngineListener {
+public class MenuClass extends FragmentActivity implements Page2.TextClicked,Communicator{//implements ROXIMITYEngineListener {
     private static final String TAG = "beaconDemo";
     String rangeupdate = "not";
     /*private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -128,6 +128,7 @@ public class MenuClass extends FragmentActivity implements Page2.TextClicked{//i
 
     @Override
     public void onBackPressed() {
+
         Intent setIntent = new Intent(getApplicationContext(), SelectClient.class);
         setIntent.addCategory(Intent.CATEGORY_HOME);
         setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -145,4 +146,9 @@ public class MenuClass extends FragmentActivity implements Page2.TextClicked{//i
 
     }
 
+    @Override
+    public void respond(String data) {
+        Page3 pg3=new Page3();
+        pg3.changeText(data);
+    }
 }
